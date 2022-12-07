@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 06, 2022 lúc 01:00 PM
+-- Thời gian đã tạo: Th12 07, 2022 lúc 08:37 AM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 8.1.6
 
@@ -102,7 +102,8 @@ INSERT INTO `tu_vung` (`ID`, `Id_danh_muc`, `bac`, `trung`, `nam`) VALUES
 (41, 1, 'Nem chạo', '', 'Bì'),
 (42, 1, 'Nộm', '', 'Gỏi'),
 (43, 1, 'Sữa chua', 'Ya - ua', 'Ya - ua'),
-(44, 1, 'Gạo nếp', 'Nếp', 'Nếp');
+(44, 1, 'Gạo nếp', 'Nếp', 'Nếp'),
+(45, 2, 'anh/chị cả', 'anh/chị hai', 'anh/chị hai');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -135,7 +136,7 @@ ALTER TABLE `danh_muc`
 -- AUTO_INCREMENT cho bảng `tu_vung`
 --
 ALTER TABLE `tu_vung`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
