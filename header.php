@@ -1,3 +1,8 @@
+<?php
+include './database/connect.php';
+$load_danh_muc = "SELECT tv.Id_danh_muc, dm.Ten_danh_muc, COUNT(*) as tong FROM tu_vung tv, danh_muc dm WHERE tv.Id_danh_muc = dm.ID GROUP BY tv.Id_danh_muc, dm.Ten_danh_muc LIMIT 10";
+$result_load = mysqli_query($conn, $load_danh_muc);
+?>
 <!DOCTYPE html>
 <html lang="vi">
 
@@ -14,18 +19,18 @@
 <body>
     <div class="container mt-3">
         <h2 class="text-center">Vietnamese Dictionary Among Region</h2>
-        <button type="button" class="btn btn-primary">
-            Messages <span class="badge bg-danger">4</span>
-        </button>
-        <button type="button" class="btn btn-primary">
-            Messages <span class="badge bg-secondary">10</span>
-        </button>
-        <button type="button" class="btn btn-primary">
-            Messages <span class="badge bg-success">10</span>
-        </button>
-        <button type="button" class="btn btn-primary">
-            Messages <span class="badge bg-danger">10</span>
-        </button>
+        <?php
+        if ($result_load->num_rows > 0) {
+            // load du lieu
+            while ($row = mysqli_fetch_assoc($result_load)) {
+                echo "<button type='button' class='btn btn-primary'>";
+                echo "${row['Ten_danh_muc']} <span class='badge bg-danger'>${row['tong']}</span>";
+                echo "</button>";
+            }
+        } else {
+            echo "Không có dữ liệu để load";
+        }
+        ?>
         <form action="./search.php" method="POST">
             <div class="mb-3 mt-3">
                 <input type="text" class="form-control" placeholder="Nhập từ khóa cần tìm..." id="search_box" name="search_box" />

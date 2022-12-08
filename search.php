@@ -3,7 +3,7 @@ include './database/connect.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["search_box"])) {
         $txt_search = $_POST["search_box"];
-        $query = "SELECT * FROM tu_vung tv, danh_muc dm  WHERE tv.Id_danh_muc = dm.ID and bac LIKE '%{$txt_search}%' or trung LIKE '%{$txt_search}%' or nam LIKE '%{$txt_search}%'LIMIT 10";
+        $query = "SELECT * FROM tu_vung tv  WHERE bac LIKE '%{$txt_search}%' or trung LIKE '%{$txt_search}%' or nam LIKE '%{$txt_search}%'LIMIT 10";
         $result = mysqli_query($conn, $query);
     }
 }
